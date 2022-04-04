@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+    <title>
+        Html CRUD with Pure JavaScript
+    </title>
+    <link rel="stylesheet" href="styles.css">
+ <style>
+ 
+ </style>
+</head>
+<body>
+	<div class="principal">
+		<br>
+	<div>
+		<div>
+<a href="#modal" class="modal-open">Ajouter</a>
+</div>
+ <div align="right" ><input onkeyup="searchData(this.value)" type="text" name="search" id="search" placeholder="Search"></div>
+</div>
+<div class="modal" id="modal">
+    <div class="modal__content">
+		<br>
+   
+	  <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+		<a href="" class="modal__close">&times;</a>
+		<div>
+			<label>Last Name*</label><label class="validation-error hide" id="lastNameValidationError">ce champ est obligatoire.</label><br>
+			<input type="text" name="lastName" id="lastName">
+		</div>
+		<div>
+			<label>First Name</label><br>
+			<input type="text" name="firstName" id="firstName">
+		</div>
+		<div>
+			<label>Gender</label><br>
+			<input type="text" name="gender" id="gender">
+		</div>
+		<div>
+			<label>Date of Birth</label><br>
+			<input type="text" name="dateBirth" id="dateBirth">
+		</div>
+		<div  class="form-action-buttons">
+			<input type="submit" id ="submit" name="submit" value="Create">
+		</div>
+	</form>
+    </div>
+ </div>  
+ 
+
+<table class="content-table" id="employeeList">
+	<thead>
+		<tr>
+			<th onclick="sortTable(0)">Last Name</th>
+			<th onclick="sortTable(1)">First Name</th>
+			<th onclick="sortTable(2)">Gender</th>
+			<th onclick="sortTable(3)">Date of Birth</th>
+			<th> Action</th>
+		</tr>
+	</thead>
+	<tbody id="table">
+
+	</tbody>
+</table>
+
+<script src="script.js"></script>
+</div>
+</body>
+
+</html>
