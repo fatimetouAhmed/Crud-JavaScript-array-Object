@@ -82,7 +82,7 @@ function searchData(value){
                html+='<td>'+myarray[i].firstName+'</td>';
                html+='<td>'+myarray[i].gender+'</td>';
                html+='<td>'+myarray[i].dateBirth+'</td>';
-               html+='<td><button id="update" onclick="updateData('+i+')">Update<button><button id="delete" onclick="DeleteData('+i+')">Delete<button></td>';
+               html+='<td> <a href="#modal" class="modal-open" onclick="updateData('+i+')">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button" id="delete" onclick="DeleteData('+i+')">Delete</button></td>';
                html+='</tr>';
              }
              document.getElementById("table").innerHTML=html;
