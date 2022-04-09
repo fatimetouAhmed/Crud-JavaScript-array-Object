@@ -91,14 +91,13 @@ function searchData(value){
 
 }
 //sorting table asc/desc
-function sortTable(n) {
+function sortTableAsc(n) {
     var table;
     table = document.getElementById("table");
-    var rows, i, x, y, count = 0;
+    var rows, i, x, y;
     var switching = true;
 
     var direction = "ascending";
-
     //boucle principale qui s execute jusqu a la table soit triee
     while (switching) {
         switching = false;
@@ -118,7 +117,35 @@ function sortTable(n) {
                     Switch = true;
                     break;
                 }
-            } else if (direction == "descending") {
+            }
+        }
+        if (Switch) {
+            //Fonction pour changer de ligne et marquer le changement comme terminé
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;;
+        } 
+    }
+}
+function sortTableDesc(n) {
+    var table;
+    table = document.getElementById("table");
+    var rows, i, x, y
+    var switching = true;
+
+    var direction = "descending";
+
+    //boucle principale qui s execute jusqu a la table soit triee
+    while (switching) {
+        switching = false;
+        var rows = table.rows;
+
+        //boucle qui s execute pour toutes les lignes
+        for (i = 0; i < (rows.length - 1); i++) {
+            var Switch = false;
+            // les 2 elements qui doivent etre comparer
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+              if (direction == "descending") {
                 if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())
                     {
                     Switch = true;
@@ -129,19 +156,10 @@ function sortTable(n) {
         if (Switch) {
             //Fonction pour changer de ligne et marquer le changement comme terminé
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            // Augmenter le nombre pour chaque commutateur
-            count++;
-        } else {
-           // Exécuter à nouveau la boucle while pour l'ordre décroissant
-            if (count == 0 && direction == "ascending") {
-                direction = "descending";
-                switching = true;
-            }
-        }
+            switching = true;           
+         }       
     }
 }
-
 
 function validate() {
     isValid = true;
